@@ -89,11 +89,11 @@ export async function initSystemConfig() {
     readConfigData('config.json')
   ]);
   const fileRes = JSON.parse(fileConfig) as FastGPTConfigFileType;
-  console.log(`==> feConfigs: ${fileRes?.feConfigs}`)
+  console.log(`==> fileRes: ${fileRes}`)
   // get config from database
   const config: FastGPTConfigFileType = {
     feConfigs: {
-      ...defaultFeConfigs,      
+      ...defaultFeConfigs,  
       ...fileRes?.feConfigs,
       ...(dbConfig.feConfigs || {}),
       isPlus: !!FastGPTProUrl

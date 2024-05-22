@@ -186,7 +186,7 @@ const Navbar = ({ unread }: { unread: number }) => {
             {...itemStyles}
             {...hoverStyle}
             mt={0}
-            color={'myGray.500'} 
+            color={'myGray.500'}
           >
             <MyIcon name={'common/gitInlight'} width={'26px'} height={'26px'} />
           </Link>
