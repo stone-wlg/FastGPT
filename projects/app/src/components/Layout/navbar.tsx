@@ -163,7 +163,7 @@ const Navbar = ({ unread }: { unread: number }) => {
           </Link>
         </Box>
       )}
-      {/* {(feConfigs?.docUrl || feConfigs?.chatbotUrl) && (
+      {(feConfigs?.docUrl || feConfigs?.chatbotUrl) && (
         <MyTooltip label={t('common.system.Use Helper')} placement={'right-end'}>
           <Link
             {...itemStyles}
@@ -176,8 +176,8 @@ const Navbar = ({ unread }: { unread: number }) => {
             <MyIcon name={'common/courseLight'} width={'24px'} height={'24px'} />
           </Link>
         </MyTooltip>
-      )} */}
-      {/* {feConfigs?.show_git && (
+      )}
+      {feConfigs?.show_git && (
         <MyTooltip label={`Git Star: ${gitStar}`} placement={'right-end'}>
           <Link
             as={NextLink}
@@ -186,12 +186,12 @@ const Navbar = ({ unread }: { unread: number }) => {
             {...itemStyles}
             {...hoverStyle}
             mt={0}
-            color={'myGray.500'}
+            color={'myGray.500'} 
           >
             <MyIcon name={'common/gitInlight'} width={'26px'} height={'26px'} />
           </Link>
         </MyTooltip>
-      )} */}
+      )}
     </Flex>
   );
 };

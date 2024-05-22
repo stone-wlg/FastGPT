@@ -543,7 +543,7 @@ const Other = () => {
   return (
     <Box>
       <Grid gridGap={4} mt={3}>
-        {/* {feConfigs?.docUrl && (
+        {feConfigs?.docUrl && (
           <Link
             bg={'white'}
             href={getDocPath('/docs/intro')}
@@ -563,8 +563,8 @@ const Other = () => {
               {t('system.Help Document')}
             </Box>
           </Link>
-        )} */}
-        {/* {feConfigs?.chatbotUrl && (
+        )}
+        {feConfigs?.chatbotUrl && (
           <Link
             href={feConfigs.chatbotUrl}
             target="_blank"
@@ -584,7 +584,7 @@ const Other = () => {
               {t('common.system.Help Chatbot')}
             </Box>
           </Link>
-        )} */}
+        )}
 
         {feConfigs?.lafEnv && userInfo?.team.role === TeamMemberRoleEnum.owner && (
           <Flex
@@ -637,7 +637,7 @@ const Other = () => {
             />
           </Flex>
         )}
-        {/* {feConfigs?.concatMd && (
+        {feConfigs?.concatMd && (
           <Button
             variant={'whiteBase'}
             justifyContent={'flex-start'}
@@ -647,7 +647,7 @@ const Other = () => {
           >
             联系我们
           </Button>
-        )} */}
+        )}
       </Grid>
 
       {isOpenLaf && userInfo && (

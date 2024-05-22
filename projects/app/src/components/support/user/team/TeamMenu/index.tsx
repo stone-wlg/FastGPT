@@ -33,15 +33,14 @@ const TeamMenu = () => {
       }}
       transform={'none !important'}
       onClick={() => {
-        onOpen();
-        // if (feConfigs.isPlus) {
-        //   onOpen();
-        // } else {
-        //   toast({
-        //     status: 'warning',
-        //     title: t('common.Business edition features')
-        //   });
-        // }
+        if (feConfigs.isPlus) {
+          onOpen();
+        } else {
+          toast({
+            status: 'warning',
+            title: t('common.Business edition features')
+          });
+        }
       }}
     >
       <MyTooltip label={t('user.team.Select Team')}>

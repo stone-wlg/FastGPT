@@ -37,11 +37,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 const defaultFeConfigs: FastGPTFeConfigsType = {
   show_emptyChat: true,
-  show_git: false,
-  docUrl: '',
-  openAPIDocUrl: '',
-  systemTitle: 'HuaSheng',
-  concatMd: '',
+  show_git: true,
+  docUrl: 'https://doc.fastgpt.in',
+  openAPIDocUrl: 'https://doc.fastgpt.in/docs/development/openapi',
+  systemTitle: 'FastGPT',
+  concatMd:
+    '项目开源地址: [FastGPT GitHub](https://github.com/labring/FastGPT)\n交流群: ![](https://oss.laf.run/htr4n1-images/fastgpt-qr-code.jpg)',
   limit: {
     exportDatasetLimitMinutes: 0,
     websiteSyncLimitMinuted: 0
@@ -88,12 +89,12 @@ export async function initSystemConfig() {
     readConfigData('config.json')
   ]);
   const fileRes = JSON.parse(fileConfig) as FastGPTConfigFileType;
-
+  console.log(`==> feConfigs: ${fileRes?.feConfigs}`)
   // get config from database
   const config: FastGPTConfigFileType = {
     feConfigs: {
+      ...defaultFeConfigs,      
       ...fileRes?.feConfigs,
-      ...defaultFeConfigs,
       ...(dbConfig.feConfigs || {}),
       isPlus: !!FastGPTProUrl
     },
