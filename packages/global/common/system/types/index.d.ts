@@ -72,8 +72,8 @@ export type SystemEnvType = {
   chatApiKey?: string;
 };
 
-// declare global {
-//   var feConfigs: FastGPTFeConfigsType;
-//   var systemEnv: SystemEnvType;
-//   var systemInitd: boolean;
-// }
+declare global {
+  var feConfigs: FastGPTFeConfigsType;
+  var systemEnv: SystemEnvType;
+  var systemInitd: boolean;
+}
