@@ -53,7 +53,7 @@ import { SseResponseEventEnum } from '@fastgpt/global/core/workflow/runtime/cons
 import ChatProvider, { ChatBoxContext } from './Provider';
 
 import ChatItem from './components/ChatItem';
-
+import ChatController from './components/ChatController'
 import dynamic from 'next/dynamic';
 import { useCreation } from 'ahooks';
 import { AppChatConfigType } from '@fastgpt/global/core/app/type';

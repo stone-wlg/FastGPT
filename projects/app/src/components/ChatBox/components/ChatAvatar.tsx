@@ -9,8 +9,8 @@ const ChatAvatar = ({ src, type }: { src?: string; type: 'Human' | 'AI' }) => {
     <Box
       w={'40px'}
       h={'40px'}
-      p={'2px'}
       borderRadius={'50%'}
+      overflow={'hidden'}
       bg={type === 'Human' ? 'white' : 'primary.50'}
     >
       <Avatar src={src} w={'100%'} h={'100%'} />

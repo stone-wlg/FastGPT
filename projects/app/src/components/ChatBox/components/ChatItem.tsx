@@ -212,14 +212,14 @@ ${toolResponse}`}
       {/* control icon */}
       <Flex w={'100%'} alignItems={'center'} gap={2} justifyContent={styleMap.justifyContent}>
         
-      <ChatAvatar src={avatar} type={type} />
+        <ChatAvatar src={avatar} type={type} />
           {
           type === ChatRoleEnum.AI &&  (
           <Box fontSize={'17px'} color={'black'}>AI合规小兵（试用版）</Box>
           )
         }
 
-        {!!chatStatusMap && statusBoxData && isLastChild && (
+        {/* {!!chatStatusMap && statusBoxData && isLastChild && (
           <Flex alignItems={'center'} px={3} py={'1.5px'} borderRadius="md" bg={chatStatusMap.bg}>
             <Box
               className={styles.statusAnimation}
@@ -233,7 +233,7 @@ ${toolResponse}`}
               {statusBoxData.name}
             </Box>
           </Flex>
-        )}
+        )} */}
       </Flex>
       {/* content */}
       <Box mt={['6px', 2]} textAlign={styleMap.textAlign}>
@@ -253,6 +253,9 @@ ${toolResponse}`}
             <ChatController {...chatControllerProps} isLastChild={isLastChild} />
           </Box>
         )}
+         <Box order={styleMap.order} ml={styleMap.ml}>
+            <ChatController {...chatControllerProps} isLastChild={isLastChild} />
+          </Box>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useCopyData } from '@/web/common/hooks/useCopyData';
-import { Flex, FlexProps, Image, css, useTheme } from '@chakra-ui/react';
+import { Box, Flex, FlexProps, Image, css, useTheme } from '@chakra-ui/react';
 import { ChatSiteItemType } from '@fastgpt/global/core/chat/type';
 import MyTooltip from '@fastgpt/web/components/common/MyTooltip';
 import React, { useMemo } from 'react';
@@ -48,14 +48,14 @@ const ChatController = ({
     setAudioPlayingChatId
   } = useContextSelector(ChatBoxContext, (v) => v);
   const controlIconStyle = {
-    w: '14px',
+    w: '16px',
     cursor: 'pointer',
     p: '5px',
     bg: 'transparent',
   };
   const controlContainerStyle = {
     className: 'control',
-    color: 'myGray.400',
+    color: '#666666',
     display: 'flex'
   };
 
@@ -74,12 +74,11 @@ const ChatController = ({
       <MyTooltip label={t('common.Copy')}>
         <MyIcon
           {...controlIconStyle}
-          name={'copy'}
-          _hover={{ color: 'primary.600' }}
+          name={'copy2'}
           onClick={() => copyData(chatText)}
         />
       </MyTooltip>
-      {!!onDelete && !isChatting && (
+      {/* {!!onDelete && !isChatting && (
         <>
           {onRetry && (
             <MyTooltip label={t('core.chat.retry')}>
@@ -91,17 +90,17 @@ const ChatController = ({
               />
             </MyTooltip>
           )}
-          {/* <MyTooltip label={t('common.Delete')}>
+          <MyTooltip label={t('common.Delete')}>
             <MyIcon
               {...controlIconStyle}
               name={'delete'}
               _hover={{ color: 'red.600' }}
               onClick={onDelete}
             />
-          </MyTooltip> */}
+          </MyTooltip>
         </>
-      )}
-      {showVoiceIcon &&
+      )} */}
+      {/* {showVoiceIcon &&
         hasAudio &&
         (() => {
           const isPlayingChat = chat.dataId === audioPlayingChatId;
@@ -161,8 +160,8 @@ const ChatController = ({
               />
             </MyTooltip>
           );
-        })()}
-      {!!onMark && (
+        })()} */}
+      {/* {!!onMark && (
         <MyTooltip label={t('core.chat.Mark')}>
           <MyIcon
             {...controlIconStyle}
@@ -171,17 +170,16 @@ const ChatController = ({
             onClick={onMark}
           />
         </MyTooltip>
-      )}
+      )} */}
       {chat.obj === ChatRoleEnum.AI && (
         <>
           {!!onCloseUserLike && chat.userGoodFeedback && (
             <MyTooltip label={t('core.chat.feedback.Close User Like')}>
               <MyIcon
                 {...controlIconStyle}
-                color={'white'}
-                bg={'green.500'}
+                color={'#E5281B'}
                 fontWeight={'bold'}
-                name={'core/chat/feedback/goodLight'}
+                name={'core/chat/feedback/like'}
                 onClick={onCloseUserLike}
               />
             </MyTooltip>
@@ -190,10 +188,9 @@ const ChatController = ({
             <MyTooltip label={t('core.chat.feedback.Read User dislike')}>
               <MyIcon
                 {...controlIconStyle}
-                color={'white'}
-                bg={'#FC9663'}
+                color={'#E5281B'}
                 fontWeight={'bold'}
-                name={'core/chat/feedback/badLight'}
+                name={'core/chat/feedback/dislike'}
                 onClick={onReadUserDislike}
               />
             </MyTooltip>
@@ -204,13 +201,12 @@ const ChatController = ({
               {...(!!chat.userGoodFeedback
                 ? {
                     color: 'white',
-                    bg: 'green.500',
                     fontWeight: 'bold'
                   }
                 : {
                     _hover: { color: '#E5281B' }
                   })}
-              name={'core/chat/feedback/goodLight'}
+              name={'core/chat/feedback/like'}
               onClick={onAddUserLike}
             />
           )}
@@ -220,7 +216,6 @@ const ChatController = ({
               {...(!!chat.userBadFeedback
                 ? {
                     color: 'white',
-                    bg: '#FC9663',
                     fontWeight: 'bold',
                     onClick: onAddUserDislike
                   }
@@ -228,7 +223,7 @@ const ChatController = ({
                     _hover: { color: '#E5281B' },
                     onClick: onAddUserDislike
                   })}
-              name={'core/chat/feedback/badLight'}
+              name={'core/chat/feedback/dislike'}
             />
           )}
         </>
