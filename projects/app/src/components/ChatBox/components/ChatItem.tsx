@@ -212,7 +212,7 @@ ${toolResponse}`}
       {/* control icon */}
       <Flex w={'100%'} alignItems={'center'} gap={2} justifyContent={styleMap.justifyContent}>
         
-      <ChatAvatar src={avatar} type={type} />
+        <ChatAvatar src={avatar} type={type} />
           {
           type === ChatRoleEnum.AI &&  (
           <Box fontSize={'17px'} color={'black'}>AI合规小兵（试用版）</Box>
