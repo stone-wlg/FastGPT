@@ -503,9 +503,10 @@ const ChatInput = ({
                 alignItems={'center'}
                 justifyContent={'center'}
                 flexShrink={0}
-                h={['28px', '32px']}
-                w={['28px', '32px']}
+                h={['30px', '32px']}
+                w={['30px', '32px']}
                 borderRadius={'50%'}
+                position={'relative'}
                 bg={
                   isSpeaking || isChatting
                     ? ''
@@ -536,12 +537,17 @@ const ChatInput = ({
                   </Box>
                 ) : (
                   <MyTooltip label={t('core.chat.Send Message')}>
-                    <MyIcon
+                    {/* <MyIcon
                       name={'core/chat/sendFill'}
                       width={['18px', '20px']}
                       height={['18px', '20px']}
                       color={'white'}
-                    />
+                    /> */}
+                    <Box w={'18px'} h={'18px'} position={'absolute'} top={'6px'} left={'5px'}>
+                      <svg width="100%" height="100%" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.92228 17.094L11.7076 23.0883L29.6872 7.96985L14.4551 24.5066L29.0108 33.8813C30.2009 34.6477 31.7887 33.9692 32.0574 32.5794L37.8093 2.82423C38.1087 1.27537 36.5808 0.00578257 35.113 0.583668L2.23435 13.5276C0.698569 14.1322 0.514845 16.2319 1.92228 17.094ZM14.5734 34.3001V27.4552L20.2205 30.9848L16.2878 34.9998C15.6609 35.6399 14.5734 35.196 14.5734 34.3001Z" fill="white"/>
+                      </svg>
+                    </Box>
                   </MyTooltip>
                 )}
               </Flex>
