@@ -211,13 +211,13 @@ ${toolResponse}`}
     <>
       {/* control icon */}
       <Flex w={'100%'} alignItems={'center'} gap={2} justifyContent={styleMap.justifyContent}>
-        {isChatting && type === ChatRoleEnum.AI && isLastChild ? null : (
-          <Box order={styleMap.order} ml={styleMap.ml}>
-            <ChatController {...chatControllerProps} isLastChild={isLastChild} />
-          </Box>
-        )}
-        <ChatAvatar src={avatar} type={type} />
-
+       
+          <ChatAvatar src={avatar} type={type} />
+          {
+          type === ChatRoleEnum.AI &&  (
+          <Box fontSize={'17px'} color={'black'}>AI合规小兵（试用版）</Box>
+          )
+        }
         {!!chatStatusMap && statusBoxData && isLastChild && (
           <Flex alignItems={'center'} px={3} py={'1.5px'} borderRadius="md" bg={chatStatusMap.bg}>
             <Box
@@ -239,7 +239,7 @@ ${toolResponse}`}
         <Card
           className="markdown"
           {...MessageCardStyle}
-          bg={styleMap.bg}
+          bg={'white'}
           borderRadius={styleMap.borderRadius}
           textAlign={'left'}
         >
@@ -247,6 +247,11 @@ ${toolResponse}`}
           {children}
         </Card>
       </Box>
+      {isChatting && type === ChatRoleEnum.AI ? null : (
+          <Box order={styleMap.order} ml={styleMap.ml}>
+            <ChatController {...chatControllerProps} isLastChild={isLastChild} />
+          </Box>
+        )}
     </>
   );
 };
