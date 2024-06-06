@@ -51,8 +51,7 @@ const ChatController = ({
     w: '14px',
     cursor: 'pointer',
     p: '5px',
-    bg: 'white',
-    borderRight: theme.borders.base
+    bg: 'transparent',
   };
   const controlContainerStyle = {
     className: 'control',
@@ -68,16 +67,9 @@ const ChatController = ({
   return (
     <Flex
       {...controlContainerStyle}
-      borderRadius={'sm'}
       overflow={'hidden'}
-      border={theme.borders.base}
-      // 最后一个子元素，没有border
-      css={css({
-        '& > *:last-child, & > *:last-child svg': {
-          borderRight: 'none',
-          borderRadius: 'md'
-        }
-      })}
+      marginTop={'10px'}
+      justifyContent={ chat.obj === ChatRoleEnum.AI ? 'flex-start' : 'flex-end' }
     >
       <MyTooltip label={t('common.Copy')}>
         <MyIcon
@@ -99,14 +91,14 @@ const ChatController = ({
               />
             </MyTooltip>
           )}
-          <MyTooltip label={t('common.Delete')}>
+          {/* <MyTooltip label={t('common.Delete')}>
             <MyIcon
               {...controlIconStyle}
               name={'delete'}
               _hover={{ color: 'red.600' }}
               onClick={onDelete}
             />
-          </MyTooltip>
+          </MyTooltip> */}
         </>
       )}
       {showVoiceIcon &&
@@ -216,7 +208,7 @@ const ChatController = ({
                     fontWeight: 'bold'
                   }
                 : {
-                    _hover: { color: 'green.600' }
+                    _hover: { color: '#E5281B' }
                   })}
               name={'core/chat/feedback/goodLight'}
               onClick={onAddUserLike}
@@ -233,7 +225,7 @@ const ChatController = ({
                     onClick: onAddUserDislike
                   }
                 : {
-                    _hover: { color: '#FB7C3C' },
+                    _hover: { color: '#E5281B' },
                     onClick: onAddUserDislike
                   })}
               name={'core/chat/feedback/badLight'}
