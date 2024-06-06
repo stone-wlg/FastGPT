@@ -219,7 +219,7 @@ ${toolResponse}`}
           )
         }
 
-        {!!chatStatusMap && statusBoxData && isLastChild && (
+        {/* {!!chatStatusMap && statusBoxData && isLastChild && (
           <Flex alignItems={'center'} px={3} py={'1.5px'} borderRadius="md" bg={chatStatusMap.bg}>
             <Box
               className={styles.statusAnimation}
@@ -233,7 +233,7 @@ ${toolResponse}`}
               {statusBoxData.name}
             </Box>
           </Flex>
-        )}
+        )} */}
       </Flex>
       {/* content */}
       <Box mt={['6px', 2]} textAlign={styleMap.textAlign}>
@@ -253,6 +253,9 @@ ${toolResponse}`}
             <ChatController {...chatControllerProps} isLastChild={isLastChild} />
           </Box>
         )}
+         <Box order={styleMap.order} ml={styleMap.ml}>
+            <ChatController {...chatControllerProps} isLastChild={isLastChild} />
+          </Box>
     </>
   );
 };
