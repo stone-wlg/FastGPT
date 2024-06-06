@@ -206,13 +206,14 @@ const ChatInput = ({
   }, [finishWhisperTranscription, isSpeaking, startSpeak, stopSpeak]);
 
   return (
-    <Box m={['0 auto', '10px auto']} w={'100%'} maxW={['auto', 'min(800px, 100%)']} px={[0, 5]}>
+    <Box m={['0 auto', '10px auto']} w={'100%'} maxW={['auto', 'min(800px, 100%)']} px={[0, 5]} >
       <Box
         pt={fileList.length > 0 ? '10px' : ['14px', '18px']}
         pb={['14px', '18px']}
         position={'relative'}
         boxShadow={isSpeaking ? `0 0 10px rgba(54,111,255,0.4)` : `0 0 10px rgba(0,0,0,0.2)`}
-        borderRadius={['none', 'md']}
+        borderTopLeftRadius={'15'}
+        borderTopRightRadius={'15'}
         bg={'white'}
         overflow={'display'}
         {...(isPc
@@ -341,6 +342,8 @@ const ChatInput = ({
           )}
 
           {/* input area */}
+            
+          <Box minHeight={'40px'} display={'flex'} alignItems={'center'} bg={'#F2F4F8'} px={'16px'} width={'calc(100% - 50px)'} borderRadius={'20px'} overflow={'hidden'}>
           <Textarea
             ref={TextareaDom}
             py={0}
@@ -357,6 +360,13 @@ const ChatInput = ({
             lineHeight={'22px'}
             maxHeight={'50vh'}
             maxLength={-1}
+            background={'transparent'}
+            _active={{
+              background: 'transparent'
+            }}
+            _hover={{
+              background: 'transparent'
+            }}
             overflowY={'auto'}
             whiteSpace={'pre-wrap'}
             wordBreak={'break-all'}
@@ -407,11 +417,13 @@ const ChatInput = ({
               }
             }}
           />
+          </Box>
+         
           <Flex
             alignItems={'center'}
             position={'absolute'}
             right={[2, 4]}
-            bottom={['10px', '12px']}
+            bottom={['19px', '12px']}
           >
             {/* voice-input */}
             {whisperConfig.open && !havInput && !isChatting && !!whisperModel && (
@@ -480,15 +492,15 @@ const ChatInput = ({
                 alignItems={'center'}
                 justifyContent={'center'}
                 flexShrink={0}
-                h={['28px', '32px']}
-                w={['28px', '32px']}
-                borderRadius={'md'}
+                w={'30px'}
+                h={'30px'}
+                borderRadius={'50%'}
                 bg={
                   isSpeaking || isChatting
                     ? ''
                     : !havInput || hasFileUploading
                       ? '#E5E5E5'
-                      : 'primary.500'
+                      : '#E5281B'
                 }
                 cursor={havInput ? 'pointer' : 'not-allowed'}
                 lineHeight={1}
@@ -500,14 +512,17 @@ const ChatInput = ({
                 }}
               >
                 {isChatting ? (
-                  <MyIcon
-                    animation={'zoomStopIcon 0.4s infinite alternate'}
-                    width={['22px', '25px']}
-                    height={['22px', '25px']}
-                    cursor={'pointer'}
-                    name={'stop'}
-                    color={'gray.500'}
-                  />
+                  // <MyIcon
+                  //   animation={'zoomStopIcon 0.4s infinite alternate'}
+                  //   width={['22px', '25px']}
+                  //   height={['22px', '25px']}
+                  //   cursor={'pointer'}
+                  //   name={'stop'}
+                  //   color={'gray.500'}
+                  // />
+                  <Box animation={'zoomStopIcon 0.4s infinite alternate'} w={'30px'} h={'30px'} borderRadius={'50%'} border={'1px solid #333'}>
+                    <Box w={'10px'} h={'10px'} bg={'#333'} position={'absolute'} top={'50%'} left={'50%'} marginLeft={'-5px'} marginTop={'-5px'}></Box>
+                  </Box>
                 ) : (
                   <MyTooltip label={t('core.chat.Send Message')}>
                     <MyIcon

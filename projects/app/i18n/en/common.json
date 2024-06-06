@@ -433,7 +433,7 @@
       "Speaking": "I'm listening, please speak...",
       "Start Chat": "Start conversation",
       "Stop Speak": "Stop recording",
-      "Type a message": "Type a question, send [Enter]/newline [Ctrl(Alt/Shift) + Enter]",
+      "Type a message": "Type a question",
       "Unpin": "Unpin",
       "You need to a chat app": "You do not have a usable app",
       "error": {
@@ -583,8 +583,7 @@
             "success": "Start syncing"
           }
         },
-        "training": {
-        }
+        "training": {}
       },
       "data": {
         "Auxiliary Data": "Auxiliary data",

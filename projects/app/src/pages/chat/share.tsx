@@ -286,6 +286,8 @@ const OutLink = ({
           display={'flex'}
           flexDirection={['column', 'row']}
           bg={'white'}
+          backgroundImage={'/imgs/page-bg.png'}
+          backgroundSize={'cover'}
         >
           {showHistory === '1'
             ? ((children: React.ReactNode) => {
@@ -372,13 +374,13 @@ const OutLink = ({
             flexDirection={'column'}
           >
             {/* header */}
-            <ChatHeader
+            {/* <ChatHeader
               appAvatar={chatData.app.avatar}
               appName={chatData.app.name}
               history={chatData.history}
               showHistory={showHistory === '1'}
               onOpenSlider={onOpenSlider}
-            />
+            /> */}
             {/* chat box */}
             <Box flex={1}>
               <ChatBox
