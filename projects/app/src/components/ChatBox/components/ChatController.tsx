@@ -35,6 +35,7 @@ const ChatController = ({
   onAddUserDislike,
   onAddUserLike
 }: ChatControllerProps & FlexProps) => {
+ 
   const theme = useTheme();
   const {
     isChatting,
@@ -47,6 +48,7 @@ const ChatController = ({
     audioPlayingChatId,
     setAudioPlayingChatId
   } = useContextSelector(ChatBoxContext, (v) => v);
+
   const controlIconStyle = {
     w: '16px',
     cursor: 'pointer',
@@ -200,7 +202,7 @@ const ChatController = ({
               {...controlIconStyle}
               {...(!!chat.userGoodFeedback
                 ? {
-                    color: 'white',
+                    color: '#E5281B',
                     fontWeight: 'bold'
                   }
                 : {
@@ -215,7 +217,7 @@ const ChatController = ({
               {...controlIconStyle}
               {...(!!chat.userBadFeedback
                 ? {
-                    color: 'white',
+                    color: '#E5281B',
                     fontWeight: 'bold',
                     onClick: onAddUserDislike
                   }

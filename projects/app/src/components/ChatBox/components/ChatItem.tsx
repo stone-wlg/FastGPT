@@ -253,9 +253,6 @@ ${toolResponse}`}
             <ChatController {...chatControllerProps} isLastChild={isLastChild} />
           </Box>
         )}
-         <Box order={styleMap.order} ml={styleMap.ml}>
-            <ChatController {...chatControllerProps} isLastChild={isLastChild} />
-          </Box>
     </>
   );
 };
