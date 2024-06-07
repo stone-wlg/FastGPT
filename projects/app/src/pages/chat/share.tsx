@@ -374,7 +374,7 @@ const OutLink = ({
             flexDirection={'column'}
           >
             {/* header */}
-            <Box display={'none'}>
+          
               <ChatHeader
                 appAvatar={chatData.app.avatar}
                 appName={chatData.app.name}
@@ -383,7 +383,6 @@ const OutLink = ({
                 onOpenSlider={onOpenSlider}
                 appId={chatData.appId}
               />
-            </Box>
             {/* chat box */}
             <Box flex={1}>
               <ChatBox
