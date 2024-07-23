@@ -65,8 +65,6 @@ const ResponseTags = ({
 
     const chatData = flatResponse.find(isLLMNode);
 
-    console.log('节点');
-    console.log(flatResponse);
     //查询是否有图数据库节点
     const graphragList = flatResponse
       .filter((item) => item.moduleName === 'graphrag')
@@ -83,9 +81,7 @@ const ResponseTags = ({
         if (item.moduleName === 'graphrag') {
           return item.pluginOutput.quoteList;
         } else {
-          console.log(1, item.moduleName);
           const o = graphragList.filter((t) => t == item.moduleName);
-          console.log(2, o);
           if (o.length == 0) {
             return item.quoteList;
           }
@@ -93,7 +89,6 @@ const ResponseTags = ({
       })
       .flat()
       .filter(Boolean) as SearchDataResponseItemType[];
-    console.log(3, quoteList);
     const sourceList = quoteList.reduce(
       (acc: Record<string, SearchDataResponseItemType[]>, cur) => {
         if (!acc[cur.collectionId]) {
